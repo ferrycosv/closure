@@ -8,6 +8,9 @@ fetch('./exercises/index.json')
     const liveStudyApp = new LiveStudy(exercisesDir);
     const view = liveStudyApp.render();
     document.getElementById('root').appendChild(view);
+
+    document.getElementById('title').innerHTML = index.title;
+    document.getElementById('header').innerHTML = index.title;
   })
   .catch(err => console.error(err));
 

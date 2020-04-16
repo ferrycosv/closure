@@ -58,7 +58,7 @@ export default class Exercise {
     if (inDebugger) {
       console.log('--- in debugger: ' + this.path.abs + ' ----');
       const stepThrough = eval;
-      const debuggered = "debugger; // injected by inDebugger\n\n" + this.code;
+      const debuggered = "debugger;\n\n" + this.code;
       stepThrough(debuggered);
     } else {
       console.log('--- running: ' + this.path.abs + ' ----');
@@ -67,27 +67,25 @@ export default class Exercise {
   }
 
   render() {
-    const nameEl = document.createElement('text');
-    nameEl.innerHTML = this.path.rel + ' :';
 
-    const fetchCodeEl = document.createElement('button');
-    fetchCodeEl.innerHTML = 'fetch code';
-    fetchCodeEl.onclick = () => {
+    const runButtonEl = document.createElement('button');
+    runButtonEl.innerHTML = 'run: ' + this.path.rel;
+    runButtonEl.onclick = () => {
       this
-        .fetchCode('--- fetching ' + this.path.abs + ' ---')
-        .then(() => {
-          fetchCodeEl.innerHTML = 're-fetch code';
-          this.run(false);
-        });
+        .fetchCode('\n--- fetching: ' + this.path.abs + ' ---')
+        .then(() => this.run(false));
     };
 
     const inDebuggerEl = document.createElement('button');
     inDebuggerEl.innerHTML = 'in debugger';
-    inDebuggerEl.onclick = () => this.run(true);
+    inDebuggerEl.onclick = () => {
+      this
+        .fetchCode('\n--- fetching: ' + this.path.abs + ' ---')
+        .then(() => this.run(true));
+    };
 
     const container = document.createElement('text');
-    container.appendChild(nameEl);
-    container.appendChild(fetchCodeEl);
+    container.appendChild(runButtonEl);
     container.appendChild(inDebuggerEl);
 
     return container;
