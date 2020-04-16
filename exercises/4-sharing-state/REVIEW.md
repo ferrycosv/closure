@@ -2,33 +2,36 @@
 
 ## /4-sharing-state
 
-> uncaught error: 4/12/2020, 3:59:30 PM 
+> uncaught error: 4/16/2020, 3:57:15 PM 
 
 [../REVIEW.md](../REVIEW.md)
 
-* [/example-1-pure-functions.js](#example-1-pure-functionsjs) - example - fail
-* [/example-2-pure-closures.js](#example-2-pure-closuresjs) - example - fail
-* [/example-3-mutating-closures.js](#example-3-mutating-closuresjs) - example - fail
+* [/1-pure-functions.js](#1-pure-functionsjs) - uncaught error
+* [/2-pure-closures.js](#2-pure-closuresjs) - uncaught error
+* [/3-mutating-closures.js](#3-mutating-closuresjs) - uncaught error
 * [/exercise-1.js](#exercise-1js) - uncaught error
 * [/exercise-2.js](#exercise-2js) - uncaught error
 * [/exercise-3.js](#exercise-3js) - uncaught error
 
 ---
 
-## /example-1-pure-functions.js
+## /1-pure-functions.js
 
-* example - fail
-* [review source](./example-1-pure-functions.js)
+* uncaught error
+* [review source](./1-pure-functions.js)
 
 ```txt
-- FAIL : assert 1
-- FAIL : assert 2
-- FAIL : assert 3
-- FAIL : assert 4
-- FAIL : assert 5
-- FAIL : assert 6
-- FAIL : assert 7
-- FAIL : assert 8
+ReferenceError: _ is not defined
+    at Object.<anonymous> ( [ ... ] /exercises/4-sharing-state/1-pure-functions.js:15:37)
+    at Module._compile (internal/modules/cjs/loader.js:777:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:788:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at evaluate ( [ ... ] /review.js:229:7)
+    at Object.<anonymous> ( [ ... ] /review.js:244:1)
+    at Module._compile (internal/modules/cjs/loader.js:777:30)
 ```
 
 ```js
@@ -46,18 +49,20 @@ const concatParam = (str, param) => {
 
 const str1 = '-';
 
-console.assert(concatPigs(str1) === null, 'assert 1');
-console.assert(concatPigs(str1) === null, 'assert 2');
-console.assert(concatParam(str1, " rock!") === null, 'assert 3');
-console.assert(concatParam(str1, " rock!") === null, 'assert 4');
+console.assert(concatPigs(str1) === _, 'assert 1');
+console.assert(concatPigs(str1) === _, 'assert 2');
+console.assert(concatParam(str1, " rock!") === _, 'assert 3');
+console.assert(concatParam(str1, " rock!") === _, 'assert 4');
 
 
 const str2 = "hoy";
 
-console.assert(concatPigs(str2) === null, 'assert 5');
-console.assert(concatPigs(str2) === null, 'assert 6');
-console.assert(concatParam(str2, " cheese!") === null, 'assert 7');
-console.assert(concatParam(str2, " cheese!") === null, 'assert 8');
+console.assert(concatPigs(str2) === _, 'assert 5');
+console.assert(concatPigs(str2) === _, 'assert 6');
+console.assert(concatParam(str2, " cheese!") === _, 'assert 7');
+console.assert(concatParam(str2, " cheese!") === _, 'assert 8');
+
+
 
 ```
 
@@ -65,20 +70,23 @@ console.assert(concatParam(str2, " cheese!") === null, 'assert 8');
 
 ---
 
-## /example-2-pure-closures.js
+## /2-pure-closures.js
 
-* example - fail
-* [review source](./example-2-pure-closures.js)
+* uncaught error
+* [review source](./2-pure-closures.js)
 
 ```txt
-- FAIL : assert 1
-- FAIL : assert 2
-- FAIL : assert 3
-- FAIL : assert 4
-- FAIL : assert 5
-- FAIL : assert 6
-- FAIL : assert 7
-- FAIL : assert 8
+ReferenceError: _ is not defined
+    at Object.<anonymous> ( [ ... ] /exercises/4-sharing-state/2-pure-closures.js:19:1)
+    at Module._compile (internal/modules/cjs/loader.js:777:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:788:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at evaluate ( [ ... ] /review.js:229:7)
+    at Object.<anonymous> ( [ ... ] /review.js:244:1)
+    at Module._compile (internal/modules/cjs/loader.js:777:30)
 ```
 
 ```js
@@ -98,23 +106,25 @@ const closeNonMutatingFunctions = (str) => {
 }
 
 let closedFunctions1 = closeNonMutatingFunctions("-");
-const concatPigs1 = closedFunctions1[0], concatParam1 = closedFunctions1[1];
-closedFunctions1 = null;
+const concatPigs1 = closedFunctions1[0];
+const concatParam1 = closedFunctions1[1];
+closedFunctions1 = _;
 
-console.assert(concatPigs1() === null, 'assert 1');
-console.assert(concatPigs1() === null, 'assert 2');
-console.assert(concatParam1(" rock!") === null, 'assert 3');
-console.assert(concatParam1(" rock!") === null, 'assert 4');
+console.assert(concatPigs1() === _, 'assert 1');
+console.assert(concatPigs1() === _, 'assert 2');
+console.assert(concatParam1(" rock!") === _, 'assert 3');
+console.assert(concatParam1(" rock!") === _, 'assert 4');
 
 
 let closedFunctions2 = closeNonMutatingFunctions("hoy");
-const concatPigs2 = closedFunctions2[0], concatParam2 = closedFunctions2[1];
-closedFunctions2 = null;
+const concatPigs2 = closedFunctions2[0];
+const concatParam2 = closedFunctions2[1];
+closedFunctions2 = _;
 
-console.assert(concatPigs2() === null, 'assert 5');
-console.assert(concatPigs2() === null, 'assert 6');
-console.assert(concatParam2(" cheese!") === null, 'assert 7');
-console.assert(concatParam2(" cheese!") === null, 'assert 8');
+console.assert(concatPigs2() === _, 'assert 5');
+console.assert(concatPigs2() === _, 'assert 6');
+console.assert(concatParam2(" cheese!") === _, 'assert 7');
+console.assert(concatParam2(" cheese!") === _, 'assert 8');
 
 ```
 
@@ -122,20 +132,23 @@ console.assert(concatParam2(" cheese!") === null, 'assert 8');
 
 ---
 
-## /example-3-mutating-closures.js
+## /3-mutating-closures.js
 
-* example - fail
-* [review source](./example-3-mutating-closures.js)
+* uncaught error
+* [review source](./3-mutating-closures.js)
 
 ```txt
-- FAIL : assert 1
-- FAIL : assert 2
-- FAIL : assert 3
-- FAIL : assert 4
-- FAIL : assert 5
-- FAIL : assert 6
-- FAIL : assert 7
-- FAIL : assert 8
+ReferenceError: _ is not defined
+    at Object.<anonymous> ( [ ... ] /exercises/4-sharing-state/3-mutating-closures.js:19:1)
+    at Module._compile (internal/modules/cjs/loader.js:777:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:788:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at evaluate ( [ ... ] /review.js:229:7)
+    at Object.<anonymous> ( [ ... ] /review.js:244:1)
+    at Module._compile (internal/modules/cjs/loader.js:777:30)
 ```
 
 ```js
@@ -155,23 +168,25 @@ function closeMutatingFunctions(str) {
 }
 
 let closedFunctions1 = closeMutatingFunctions("-");
-const concatPigs1 = closedFunctions1[0], concatParam1 = closedFunctions1[1];
-closedFunctions1 = null;
+const concatPigs1 = closedFunctions1[0];
+const concatParam1 = closedFunctions1[1];
+closedFunctions1 = _;
 
-console.assert(concatPigs1() === null, 'assert 1');
-console.assert(concatPigs1() === null, 'assert 2');
-console.assert(concatParam1(" rock!") === null, 'assert 3');
-console.assert(concatParam1(" rock!") === null, 'assert 4');
+console.assert(concatPigs1() === _, 'assert 1');
+console.assert(concatPigs1() === _, 'assert 2');
+console.assert(concatParam1(" rock!") === _, 'assert 3');
+console.assert(concatParam1(" rock!") === _, 'assert 4');
 
 
 let closedFunctions2 = closeMutatingFunctions("hoy");
-const concatPigs2 = closedFunctions2[0], concatParam2 = closedFunctions2[1];
-closedFunctions2 = null;
+const concatPigs2 = closedFunctions2[0]
+const concatParam2 = closedFunctions2[1];
+closedFunctions2 = _;
 
-console.assert(concatPigs2() === null, 'assert 5');
-console.assert(concatPigs2() === null, 'assert 6');
-console.assert(concatParam2(" cheese!") === null, 'assert 7');
-console.assert(concatParam2(" cheese!") === null, 'assert 8');
+console.assert(concatPigs2() === _, 'assert 5');
+console.assert(concatPigs2() === _, 'assert 6');
+console.assert(concatParam2(" cheese!") === _, 'assert 7');
+console.assert(concatParam2(" cheese!") === _, 'assert 8');
 
 ```
 

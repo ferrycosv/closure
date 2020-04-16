@@ -2,9 +2,8 @@
 
 ## /exercises
 
-> uncaught error: 4/12/2020, 3:59:30 PM 
+> uncaught error: 4/16/2020, 3:57:15 PM 
 
-* [/file.js](#filejs) - no status
 * [/1-identifying-closure](./1-identifying-closure/REVIEW.md) - no status
   * [/example-1-returning-functions.js](./1-identifying-closure/REVIEW.md#example-1-returning-functionsjs) - example - pass
   * [/example-2-never-creates-closure.js](./1-identifying-closure/REVIEW.md#example-2-never-creates-closurejs) - example - fail
@@ -24,19 +23,10 @@
   * [/exercise-1.js](./3-closed-variables/REVIEW.md#exercise-1js) - uncaught error
   * [/exercise-2.js](./3-closed-variables/REVIEW.md#exercise-2js) - uncaught error
 * [/4-sharing-state](./4-sharing-state/REVIEW.md) - uncaught error
-  * [/example-1-pure-functions.js](./4-sharing-state/REVIEW.md#example-1-pure-functionsjs) - example - fail
-  * [/example-2-pure-closures.js](./4-sharing-state/REVIEW.md#example-2-pure-closuresjs) - example - fail
-  * [/example-3-mutating-closures.js](./4-sharing-state/REVIEW.md#example-3-mutating-closuresjs) - example - fail
+  * [/1-pure-functions.js](./4-sharing-state/REVIEW.md#1-pure-functionsjs) - uncaught error
+  * [/2-pure-closures.js](./4-sharing-state/REVIEW.md#2-pure-closuresjs) - uncaught error
+  * [/3-mutating-closures.js](./4-sharing-state/REVIEW.md#3-mutating-closuresjs) - uncaught error
   * [/exercise-1.js](./4-sharing-state/REVIEW.md#exercise-1js) - uncaught error
   * [/exercise-2.js](./4-sharing-state/REVIEW.md#exercise-2js) - uncaught error
   * [/exercise-3.js](./4-sharing-state/REVIEW.md#exercise-3js) - uncaught error
-
----
-
-## /file.js
-
-* no status
-* [review source](./file.js)
-
-[TOP](#event-loop)
 

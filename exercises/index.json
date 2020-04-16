@@ -74,16 +74,13 @@
       "path": "/4-sharing-state",
       "files": [
         {
-          "path": "/example-1-pure-functions.js",
-          "isExample": true
+          "path": "/1-pure-functions.js"
         },
         {
-          "path": "/example-2-pure-closures.js",
-          "isExample": true
+          "path": "/2-pure-closures.js"
         },
         {
-          "path": "/example-3-mutating-closures.js",
-          "isExample": true
+          "path": "/3-mutating-closures.js"
         },
         {
           "path": "/exercise-1.js"
@@ -97,5 +94,6 @@
       ]
     }
   ],
-  "lastBuild": "2020-04-14T07:29:46.134Z"
+  "lastBuild": "2020-04-16T13:57:08.662Z",
+  "title": "closure"
 }

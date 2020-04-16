@@ -2,7 +2,7 @@
 
 ## /2-basic-closure
 
-> uncaught error: 4/12/2020, 3:59:30 PM 
+> uncaught error: 4/16/2020, 3:57:15 PM 
 
 [../REVIEW.md](../REVIEW.md)
 
